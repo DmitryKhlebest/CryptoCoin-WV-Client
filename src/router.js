@@ -1,17 +1,16 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import store from './store';
-// import Home from './views/Home.vue';
 
 // import HomePage from '@/components/HomePage';
-import HomePage from './views/HomePage.vue';
-import SingIn from './views/SingIn';
-import SingUp from './views/SingUp';
-import SingOut from './views/SingOut';
-import PersonalPage from './views/PersonalPage';
-import MarketPage from './views/MarketPage';
-import HistoryPage from './views/HistoryPage';
-import NotFoundComponent from './views/NotFoundComponent';
+import HomePage from '@/views/HomePage.vue';
+import SingIn from '@/views/SingIn';
+import SingUp from '@/views/SingUp';
+import SingOut from '@/views/SingOut';
+import PersonalPage from '@/views/PersonalPage';
+import MarketPage from '@/views/MarketPage';
+import HistoryPage from '@/views/HistoryPage';
+import NotFoundComponent from '@/views/NotFoundComponent';
 // import User from "./user";
 
 Vue.use(Router);
@@ -63,11 +62,15 @@ export default new Router({
       component: SingOut,
       beforeEnter: requireAuth
     },
-    { path: '*', component: NotFoundComponent }
+    {
+      path: '*',
+      component: NotFoundComponent
+    }
   ]
 });
 
-function requireAuth (to, from, next) {
+function requireAuth(to, from, next) {
+  // next();
   if (store.state.User)
     next();
   else

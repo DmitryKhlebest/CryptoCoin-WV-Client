@@ -34,7 +34,7 @@
               >-->
               <!-- ------------------- Тут таблица (vue good table) ------------------- -->
               <!-- </div> -->
-              <div id="left_div_pp" style="float:left">
+              <div id="left_div_pp" style="float:left; width: 240px;">
                 <!-- <div style="float: left"> -->
                 <span
                   class="home__text"
@@ -43,8 +43,8 @@
                 
                 <img
                   class="img-avatar"
-                  :src="this.$store.state.User.avatar.image"
-                  :title="this.$store.state.User.avatar.name"
+                  :src="this.$store.state.User && this.$store.state.User.avatar && this.$store.state.User.avatar.image"
+                  :title="this.$store.state.User && this.$store.state.User.avatar && this.$store.state.User.avatar.name"
                   alt="Without avatar"
                 >
 
@@ -53,24 +53,33 @@
                     type="file"
                     accept="image/*"
                     style="display: none"
-                    ref="uploadAvatar"
-                    @change="uploadAvatar"
+                    ref="updateAvatar"
+                    @change="updateAvatar"
                   >
                   <button
-                    style="margin-top:10px; width: 200px"
-                    class="btn btn-primary"
-                    @click="simulateClickUploadAvatar"
-                  >Upload avatar</button>
+                    style="margin-top:10px; width: 200px; height: 50px"
+                    class="home__btn home__btn--color"
+                    @click="simulateClickupdateAvatar"
+                  >Update avatar</button>
+                  <p
+                    v-if="errorUpdate"
+                    style="color: red; margin-top: 10px;"
+                  >{{errorUpdate}}</p>
                 </div>
 
-                <div style="margin-top: 70px;">
+                <div style="margin-top: 40px;">
                   <p class="home__text" style="margin-bottom: 10px">Buy/Sale coins</p>
-                  <button style="width: 200px" class="btn btn-primary" @click="buyCoins">Buy coins</button>
+                  <button
+                    style="width: 200px"
+                    class="home__btn home__btn--color"
+                    @click="buyCoins"
+                  >Buy coins</button>
+                  <p v-if="errorBuy" style="color: red; margin-top: 10px;">{{errorBuy}}</p>
                 </div>
 
-                <div style="margin-top: 70px;">
-                  <p class="home__text" style="margin-bottom: 10px">Sale coin</p>
-                  <div class="styled-select green semi-square">
+                <div style="margin-top: 40px;">
+                  <p class="home__text" style="margin-bottom: 0px">Sale coin</p>
+                  <div class="styled-select green semi-square" style="margin: 20px;">
                     <select v-model="saleCoinId">
                       <option v-for="option in options" :key="option">{{ option }}</option>
                     </select>
@@ -81,7 +90,7 @@
                     step="0.01"
                     class="form__input"
                     placeholder="Sale price"
-                    style="width: 200px; height: 30px; margin: 10px 0;"
+                    style="width: 200px; height: 30px; margin: 10px 20px;"
                   >
                   <input
                     v-model="saleQuantity"
@@ -89,9 +98,17 @@
                     step="0.01"
                     class="form__input"
                     placeholder="Sale quantity"
-                    style="width: 200px; height: 30px; margin: 10px 0;"
+                    style="width: 200px; height: 30px; margin: 10px 20px;"
                   >
-                  <button style="width: 200px" class="btn btn-primary" @click="saleCoin">Sale coin</button>
+                  <button
+                    style="width: 200px"
+                    class="home__btn home__btn--color"
+                    @click="saleCoin"
+                  >Sale coin</button>
+                  <p
+                    v-if="errorSale"
+                    style="color: red; margin-top: 10px;"
+                  >{{errorSale}}</p>
                 </div>
               </div>
 
@@ -102,6 +119,7 @@
                 >Balance: {{this.$store.state.User && this.$store.state.User.balance}}</span>
                 <div>
                   <vue-good-table
+                    :line-numbers="true"
                     :columns="table.columns"
                     :rows="table.rows"
                     theme="black-rhino"
@@ -138,8 +156,11 @@
 export default {
   data() {
     return {
+      errorSale: null,
+      errorBuy: null,
+      errorUpdate: null,
       saleCoinId: "BTC",
-      options: [],
+      options: this.$store.state.allCoins,
       salePrice: "",
       saleQuantity: "",
       table: {
@@ -148,12 +169,6 @@ export default {
             label: "Symbol",
             field: "id",
             filterable: true
-            // filterOptions: {
-            //   enabled: true
-            //   placeholder: 'All',
-            //   filterDropdownItems: ['Chris', 'Dan', 'Susan'],
-            //   filterValue: 'Chris',
-            // }
           },
           {
             label: "",
@@ -164,88 +179,44 @@ export default {
             label: "Week",
             field: this.funPercentageWeek,
             type: "number",
-            // type: "percentage",
             html: true
           },
           {
             label: "Day",
             field: this.funPercentageDay,
             type: "number",
-            // field: "changePerDay",
-            // type: "percentage",
             html: true
           },
           {
             label: "Hour",
             field: this.funPercentageHour,
             type: "number",
-            // field: "changePerHour",
-            // type: "percentage",
             html: true
           },
           {
             label: "Price",
             field: this.funPrice,
-            // field: "price",
             type: "number",
-            // html: false,
             filterable: true
           },
           {
             label: "Quantity",
             field: "quantity",
             type: "number",
-            html: false,
             filterable: true
           },
           {
             label: "Buy",
             field: this.funBuy,
-            // type: "number",
             html: true
-            // filterable: true
           }
-          // {
-          //   label: "Created On",
-          //   field: "createdAt",
-          //   type: "date",
-          //   inputFormat: "YYYY-MM-DD",
-          //   outputFormat: "MMM Do YY"
-          // }
         ],
         rows: this.$store.state.personalPage.coins
-        // rows: data.coins
-        // rows: coins
       }
     };
   },
   created() {
-    // request = {
-    // 	method: 'personalUploadInfo',
-    // 	data: {}
-    // };
-
-    // response = {
-    // 	method: 'personalUploadInfo',
-    // 	data: {
-    // 		ok: {
-    // 			coins: [
-    // 				{
-    // 					id,
-    // 					name,
-    // 					price,
-    // 					changePerHour,
-    // 					changePerDay,
-    // 					changePerWeek,
-    // 					quantity,
-    // 					imageUrl
-    // 				}
-    // 			]
-    // 		}
-    // 	}
-    // };
-    // let coins = this.$store.state.personalPageCoins;
-    // setInterval(() => console.log(coins), 10000);
+    this.$store.state.startAnimate();
 
     const init = () =>
       this.$store.state.sendRequest({
@@ -256,14 +227,19 @@ export default {
             this.$store.state.personalPage.coins.length = 0;
             for (const coin of response.ok.coins)
               this.$store.state.personalPage.coins.push(coin);
-            this.options = response.ok.coins.map(coin => coin.id);
           }
         }
       });
 
     init();
 
-    setInterval(init, 60 * 1000);
+    this.$store.state.personalPage.intervalUpdate = setInterval(
+      init,
+      this.$store.state.personalPage.timeIntervalUpdate
+    );
+  },
+  destroyed() {
+    clearInterval(this.$store.state.personalPage.intervalUpdate);
   },
   methods: {
     funImage(row) {
@@ -281,7 +257,6 @@ export default {
       return this.funColorPercentage(row.changePerHour);
     },
     funColorPercentage(value) {
-      // return value + '%';
       return `<div style="color:${
         value >= 0 ? "green" : "red"
       }">${value}%</div>`;
@@ -292,18 +267,18 @@ export default {
     funBuy(row) {
       return `<input id="buy-${
         row.id
-      }" type="number" step="0.01" class="form__input" style="width: 100px; height: 30px; margin-bottom: 0">`;
+      }" type="number" step="0.01" class="form__input" style="height: 30px; margin-bottom: 0">`;
     },
-    simulateClickUploadAvatar() {
-      this.$refs.uploadAvatar.click();
+    simulateClickupdateAvatar() {
+      this.$refs.updateAvatar.click();
     },
-    uploadAvatar(event) {
+    updateAvatar(event) {
       const image = event.srcElement.files[0];
 
+      if (!image) return;
       if (image.size > 1 * 1024 * 1024) {
-        alert(
-          "Picture size is very big, please choose a picture no more than 1 MB!"
-        );
+        this.errorUpdate = "Incorrect picture (size > 1MB)";
+        setTimeout(() => (this.errorUpdate = null), 3000);
         return;
       }
 
@@ -315,30 +290,19 @@ export default {
           image: event.target.result,
           name: imageName
         };
-        // request = {
-        // 	method: 'personalUpdateAvatar',
-        // 	data: {
-        // 		imageName,
-        // 		imageBase64
-        // 	}
-        // };
 
-        // response = {
-        // 	method: 'personalUpdateAvatar',
-        // 	data: {
-        // 		ok: {
-        // 			avatarPath
-        // 		}
-        // 	}
-        // };
         this.$store.state.sendRequest({
           method: "personalUpdateAvatar",
           data: {
             imageName,
             imageBase64: event.target.result
           },
-          callback: () => {
+          callback: response => {
             // if (response.ok) this.$store.state.User.avatar = response.ok.avatar;
+            if (!response.ok) {
+              this.errorUpdate = response.error.message;
+              setTimeout(() => (this.errorUpdate = null), 3000);
+            }
           }
         });
       };
@@ -348,51 +312,27 @@ export default {
     buyCoins(evnt) {
       const personalPageCoins = this.$store.state.personalPage.coins;
       let coins = [];
+      let inputs = [];
 
       for (const coin of personalPageCoins) {
         const id = `buy-${coin.id}`;
-        // console.log(document.getElementById(id));
-        // let quantity;
-        // try {
-        //   quantity = Number(document.getElementById(id).value);
-        //   if (quantity < 0) throw new Error();
-        // } catch (err) {
-        //   alert("Некорректное количество коинов (должно быть >0)");
-        //   return;
-        // }
-        const quantity = Number(document.getElementById(id).value);
-        coins.push({
-          id: coin.id,
-          quantity
-        });
+        let quantity;
+        try {
+          const input = document.getElementById(id);
+          inputs.push(input);
+          quantity = Number(input.value);
+          if (quantity > 0)
+            coins.push({
+              id: coin.id,
+              quantity
+            });
+          if (!(quantity >= 0)) throw new Error();
+        } catch (err) {
+          this.errorBuy = "Incorrect quantity!";
+          setTimeout(() => (this.errorBuy = null), 3000);
+          return;
+        }
       }
-
-      // request = {
-      // 	method: 'personalBuyCoins',
-      // 	data: {
-      // 		coins: [
-      // 			{
-      // 				id,
-      // 				quantity
-      // 			}
-      // 		]
-      // 	}
-      // };
-
-      // response = {
-      // 	method: 'personalBuyCoins',
-      // 	data: {
-      // 		ok: {
-      // 			balance,
-      // 			coins: [
-      // 				{
-      // 					id,
-      // 					quantity
-      // 				}
-      // 			]
-      // 		}
-      // 	}
-      // };
 
       this.$store.state.sendRequest({
         method: "personalBuyCoins",
@@ -409,41 +349,34 @@ export default {
             }, {});
 
             for (const coin of this.$store.state.personalPage.coins)
-              coin.quantity = coinsHash[coin.id];
+              if (coinsHash[coin.id]) coin.quantity = coinsHash[coin.id];
+
+            for (const input of inputs) input.value = "";
+          } else {
+            this.errorBuy = response.error.message;
+            setTimeout(() => (this.errorBuy = null), 3000);
           }
         }
       });
     },
     saleCoin() {
-      //   request = {
-      //     method: "personalSaleCoins",
-      //     data: {
-      //       coin: {
-      //         id,
-      //         price,
-      //         quantity
-      //       }
-      //     }
-      //   };
-      //   response = {
-      //     method: "personalSaleCoins",
-      //     data: {
-      //       ok: {
-      //         coin: {
-      //           coinId,
-      //           quantity
-      //         }
-      //       }
-      //     }
-      //   };
+      const coinId = this.saleCoinId;
+      const price = Number(this.salePrice);
+      const quantity = Number(this.saleQuantity);
+
+      if (!(price >= 0.01) || !(quantity >= 0.01)) {
+        this.errorSale = "Incorrect quantity or price!";
+        setTimeout(() => (this.errorSale = null), 3000);
+        return;
+      }
 
       this.$store.state.sendRequest({
         method: "personalSaleCoins",
         data: {
           coin: {
-            id: this.saleCoinId,
-            price: Number(this.salePrice),
-            quantity: Number(this.saleQuantity)
+            id: coinId,
+            price,
+            quantity
           }
         },
         callback: response => {
@@ -456,12 +389,14 @@ export default {
                 coin.quantity = saleCoin.quantity;
                 break;
               }
+          } else {
+            this.errorSale = response.error.message;
+            setTimeout(() => (this.errorSale = null), 3000);
           }
         }
       });
     }
-  },
-  components: {}
+  }
 };
 </script>
 

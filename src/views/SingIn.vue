@@ -35,7 +35,7 @@
                       v-if="error"
                       class="home__text"
                       style="color: red;"
-                    >Incorrect login or password</p>
+                    >{{error}}</p>
                   </div>
                 </div>
               </div>
@@ -53,41 +53,20 @@
 export default {
   data() {
     return {
-      // login: "",
-      // password: "",
-      login: "user1",
-      password: "password1",
-      error: false
+      login: "",
+      password: "",
+      // login: "Dmitry",
+      // password: "Dmitry",
+      error: null
     };
   },
-  created() {},
+  created() {
+    this.$store.state.startAnimate();
+  },
   methods: {
     signin() {
       const login = this.login;
       const password = this.password;
-
-      // request = {
-      // 	method: 'authorization',
-      // 	data: {
-      // 		login,
-      // 		password
-      // 	}
-      // };
-
-      // response = {
-      // 	method: 'authorization',
-      // 	data: {
-      // 		ok: {
-      // 			token,
-      // 			user: {
-      // 				id,
-      // 				login,
-      // 				imagePath,
-      // 				balance
-      // 			}
-      // 		}
-      // 	}
-      // };
 
       this.$store.state.sendRequest({
         method: "authorization",
@@ -97,12 +76,12 @@ export default {
         },
         callback: response => {
           if (response.ok) {
-            // response.ok.user.imagePath = "./static/img/author-page.jpg";
             this.$store.state.User = response.ok.user;
             localStorage.token = response.ok.token;
             this.$router.replace("/personal_page");
           } else {
-            this.error = true;
+            this.error = response.error.message;
+            setTimeout(() => (this.error = null), 3000);
           }
         }
       });

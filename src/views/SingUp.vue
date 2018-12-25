@@ -19,7 +19,7 @@
 
                     <form class="form" @submit.prevent="signup">
                       <input v-model="login" type="text" class="form__input" placeholder="Login">
-                      <input v-model="email" type="text" class="form__input" placeholder="Email">
+                      <input v-model="email" type="email" class="form__input" placeholder="Email">
                       <input
                         v-model="password"
                         type="password"
@@ -36,7 +36,7 @@
                       v-if="error"
                       class="home__text"
                       style="color: red;"
-                    >Login is probably already taken</p>
+                    >{{error}}</p>
                   </div>
                 </div>
               </div>
@@ -54,43 +54,23 @@
 export default {
   data() {
     return {
-      // login: "",
-      // password: "",
-      login: "some user",
-      email: "some email",
-      password: "some password",
+      login: "",
+      email: "",
+      password: "",
+      // login: "Dmitry",
+      // email: "khlebestdima@gmail.com",
+      // password: "Dmitry",
       error: false
     };
+  },
+  created() {
+    this.$store.state.startAnimate();
   },
   methods: {
     signup() {
       const login = this.login;
       const email = this.email;
       const password = this.password;
-
-      // request = {
-      // 	method: 'registration',
-      // 	data: {
-      // 		login,
-      // 		password,
-      // 		email
-      // 	}
-      // };
-
-      // response = {
-      // 	method: 'registration',
-      // 	data: {
-      // 		ok: {
-      // 			token,
-      // 			user: {
-      // 				id,
-      // 				login,
-      // 				imagePath,
-      // 				balance
-      // 			}
-      // 		}
-      // 	}
-      // };
 
       this.$store.state.sendRequest({
         method: "registration",
@@ -105,7 +85,8 @@ export default {
             localStorage.token = response.ok.token;
             this.$router.replace("/personal_page");
           } else {
-            this.error = true;
+            this.error = response.error.message;
+            setTimeout(() => (this.error = null), 3000);
           }
         }
       });

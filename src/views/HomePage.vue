@@ -56,12 +56,17 @@
             <!-- about text -->
             <div class="about__text">
               <p>
-                <b>There are many variations of passages</b> of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or
-                <b>randomised words</b> which don't look even slightly believable.
-              </p>
-              <p>
-                If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.
-                <b>All the Lorem Ipsum generators on the Internet</b> tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.
+                <b>A cryptocurrency (or crypto currency) is a digital asset</b>
+                designed to work as a medium of exchange that uses strong
+                <b>cryptography</b>
+                to secure
+                <b>financial transactions</b>,
+                control the creation of additional units, and verify the transfer of assets. Cryptocurrencies are a kind of
+                <b>alternative currency</b> and
+                <b>digital currency</b> (of which virtual currency is a subset). Cryptocurrencies use
+                <b>decentralized control</b> as opposed to centralized digital currency and central banking systems.
+                <b>The decentralized control</b> of each cryptocurrency works through distributed ledger technology, typically a
+                <b>blockchain</b>, that serves as a public financial transaction database.
               </p>
             </div>
             <!-- end about text -->
@@ -89,10 +94,9 @@
             <!-- box (style 4) -->
             <div class="box4 animate" data-animate="flipInX" data-duration="1.0s" data-delay="0.4s">
               <span class="box4__number">01</span>
-              <h3 class="box4__title">Sign up for BuyCoin</h3>
+              <h3 class="box4__title">Registration</h3>
               <p class="box4__text">
-                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or
-                <b>randomised words</b> which don't look even slightly.
+                Registration is the process of telling the site your data to access the full <b>functionality of the site</b>, that can not be viewed or downloaded by unauthorized users.
               </p>
             </div>
             <!-- end box (style 4) -->
@@ -102,10 +106,9 @@
             <!-- box (style 4) -->
             <div class="box4 animate" data-animate="flipInX" data-duration="1.0s" data-delay="0.6s">
               <span class="box4__number">02</span>
-              <h3 class="box4__title">Connect Your Bank Account</h3>
+              <h3 class="box4__title">Authorization</h3>
               <p class="box4__text">
-                There are many variations of passages of Lorem Ipsum available,
-                <b>but the majority have suffered</b> alteration in some form, by injected humour, or randomised words which don't look even slightly.
+                After the registration phase is completed, you can log in using your username. Enter the <b>username</b> you provided during registration and the access <b>password</b> for your account.
               </p>
             </div>
             <!-- end box (style 4) -->
@@ -117,10 +120,7 @@
               <span class="box4__number">03</span>
               <h3 class="box4__title">Buy and Sell Coin</h3>
               <p class="box4__text">
-                There are many variations of passages of Lorem Ipsum available, but the majority
-                <a
-                  href="#"
-                >have suffered</a> alteration in some form, by injected humour, or randomised words which don't look even slightly.
+                After authorization on the site you will be presented with its <b>full functionality</b>. You will be able to <b>buy and sell cryptocurrency</b> from the system as well as from other users.
               </p>
             </div>
             <!-- end box (style 4) -->
@@ -133,7 +133,7 @@
     <div class="ticker section--gradient">
       <!-- ticker list -->
       <ul class="ticker__list clearfix">
-        <li class="ticker__item" v-for="coin of coins" :key="coin.id">
+        <li class="ticker__item" v-for="coin of this.$store.state.homePage.coins" :key="coin.id">
           <span class="name">Name: {{coin.name}}</span>
           <span class="price">Price: {{coin.price}}$</span>
           <span
@@ -162,7 +162,7 @@
             data-duration="1.0s"
             data-delay="0.2s"
           >
-            <h2 class="section__title">BuyCoin Template</h2>
+            <h2 class="section__title">BuyCoin</h2>
             <span class="section__tagline">Excellent for your business</span>
           </div>
           <!-- end section title -->
@@ -170,10 +170,10 @@
             <!-- box (style 2) -->
             <div class="box2 animate" data-animate="flipInX" data-duration="1.0s" data-delay="0.4s">
               <span class="lnr lnr-diamond box2__icon"></span>
-              <h3 class="box2__title">Modern Design</h3>
+              <h3 class="box2__title">Reliability and safety</h3>
               <p
                 class="box2__text"
-              >If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+              >Cryptocurrency networks use encryption algorithms that protect users ' personal data, as well as information about transactions of network members.</p>
             </div>
             <!-- end box (style 2) -->
           </div>
@@ -182,10 +182,10 @@
             <!-- box (style 2) -->
             <div class="box2 animate" data-animate="flipInX" data-duration="1.0s" data-delay="0.6s">
               <span class="lnr lnr-magic-wand box2__icon"></span>
-              <h3 class="box2__title">Easy Costomize</h3>
+              <h3 class="box2__title">Low transaction fees</h3>
               <p
                 class="box2__text"
-              >All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator.</p>
+              >Fees do not depend on the amount of cryptocurrency that users transfer within the system.</p>
             </div>
             <!-- end box (style 2) -->
           </div>
@@ -194,10 +194,10 @@
             <!-- box (style 2) -->
             <div class="box2 animate" data-animate="flipInX" data-duration="1.0s" data-delay="0.8s">
               <span class="lnr lnr-leaf box2__icon"></span>
-              <h3 class="box2__title">Clean Code</h3>
+              <h3 class="box2__title">Round-the-clock</h3>
               <p
                 class="box2__text"
-              >It to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+              >Transfer money wherever you want, at any time without any difficulties.</p>
             </div>
             <!-- end box (style 2) -->
           </div>
@@ -206,10 +206,10 @@
             <!-- box (style 2) -->
             <div class="box2 animate" data-animate="flipInX" data-duration="1.0s" data-delay="0.4s">
               <span class="lnr lnr-laptop-phone box2__icon"></span>
-              <h3 class="box2__title">Fully Responsive</h3>
+              <h3 class="box2__title">Availability</h3>
               <p
                 class="box2__text"
-              >Various versions have evolved over the years, sometimes by accident, sometimes on purpose.</p>
+              >Registering a crypto wallet is very simple. It does not matter how old you are, what country you are from, what political and religious views you have.</p>
             </div>
             <!-- end box (style 2) -->
           </div>
@@ -218,10 +218,10 @@
             <!-- box (style 2) -->
             <div class="box2 animate" data-animate="flipInX" data-duration="1.0s" data-delay="0.6s">
               <span class="lnr lnr-layers box2__icon"></span>
-              <h3 class="box2__title">20+ Color Schemes</h3>
+              <h3 class="box2__title">Not controlled</h3>
               <p
                 class="box2__text"
-              >It to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+              >Cryptocurrency is an international network blockchain, it is impossible to control or prohibit.</p>
             </div>
             <!-- end box (style 2) -->
           </div>
@@ -230,10 +230,10 @@
             <!-- box (style 2) -->
             <div class="box2 animate" data-animate="flipInX" data-duration="1.0s" data-delay="0.8s">
               <span class="lnr lnr-rocket box2__icon"></span>
-              <h3 class="box2__title">Excellent purchase</h3>
+              <h3 class="box2__title">Transparency</h3>
               <p
                 class="box2__text"
-              >Various versions have evolved over the years, sometimes by accident, sometimes on purpose.</p>
+              >The blockchain of any crypto currency is open. Everyone can learn it with the help of certain tools.</p>
             </div>
             <!-- end box (style 2) -->
           </div>
@@ -265,42 +265,28 @@
               data-delay="0.4s"
             >
               <li>
-                <span>Q3 2016</span>
+                <span>Step 1</span>
                 <p>Project start-up. Product conception. System architecture development.</p>
               </li>
               <li>
-                <span>Q4 2016</span>
-                <p>Connection to stock exchanges. Development of trading platform and the system’s core elements.</p>
+                <span>Step 2</span>
+                <p>Database development in accordance with the requirements.</p>
               </li>
               <li>
-                <span>Q1 2017</span>
-                <p>Test environment launch for algorithm creators. Development of the first algorithms.</p>
+                <span>Step 3</span>
+                <p>The invention and adoption of requests and responses.</p>
               </li>
               <li>
-                <span>Q2 2017</span>
-                <p>Tradingene public product launch for algorithm creators. Broadening of financial instruments for algorithm creation.</p>
+                <span>Step 4</span>
+                <p>Development of the server part of the application.</p>
               </li>
               <li>
-                <span>Q3 2018</span>
-                <p>Development of user interface prototype for investors.</p>
+                <span>Step 5</span>
+                <p>Development of a prototype user interface.</p>
               </li>
             </ul>
           </div>
           <!-- end roadmap -->
-          <!-- section button -->
-          <div
-            class="col-xs-12 animate"
-            data-animate="fadeIn"
-            data-duration="1.0s"
-            data-delay="0.6s"
-          >
-            <a
-              href="https://themeforest.net/user/dmitryvolkov/portfolio?ref=DmitryVolkov"
-              target="_blank"
-              class="section__btn"
-            >purchase now</a>
-          </div>
-          <!-- end section button -->
         </div>
       </div>
     </section>
@@ -313,7 +299,7 @@
             class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3"
           >
             <a
-              href="https://vimeo.com/45830194"
+              href="https://www.youtube.com/watch?v=HLYuxoytR3s"
               class="video__btn animate"
               data-animate="fadeIn"
               data-duration="1.0s"
@@ -366,7 +352,7 @@
               <h3 class="box3__title">Security</h3>
               <p
                 class="box3__text"
-              >It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+              >A vulnerability is a weakness in design, implementation, operation or internal control.Our site has no vulnerabilities.</p>
             </div>
             <!-- end box (style 3) -->
           </div>
@@ -385,7 +371,7 @@
               <h3 class="box3__title">License</h3>
               <p
                 class="box3__text"
-              >All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
+              >A license for these activities is not required. They are not included in the list of activities for which you need to obtain a license.</p>
             </div>
             <!-- end box (style 3) -->
           </div>
@@ -399,7 +385,7 @@
               <h3 class="box3__title">Result</h3>
               <p
                 class="box3__text"
-              >The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+              >Uptime. Real-time update. Your money is always safe. Withdrawals at any time.</p>
             </div>
             <!-- end box (style 3) -->
           </div>
@@ -431,21 +417,21 @@
         <div class="row">
           <div class="col-xs-12 col-sm-4 col-lg-4">
             <div class="counter__box">
-              <span class="counter__value">{{info.countOnline}}</span>
+              <span class="counter__value">{{this.$store.state.homePage.info.countOnline}}</span>
               <span class="counter__title">Count online</span>
             </div>
           </div>
 
           <div class="col-xs-12 col-sm-4 col-lg-4">
             <div class="counter__box">
-              <span class="counter__value">{{info.totalPrice}}</span>
+              <span class="counter__value">{{this.$store.state.homePage.info.totalPrice}}</span>
               <span class="counter__title">Total price</span>
             </div>
           </div>
 
           <div class="col-xs-12 col-sm-4 col-lg-4">
             <div class="counter__box">
-              <span class="counter__value">{{info.totalQuantity}}</span>
+              <span class="counter__value">{{this.$store.state.homePage.info.totalQuantity}}</span>
               <span class="counter__title">Total quantity</span>
             </div>
           </div>
@@ -479,53 +465,23 @@
         data-delay="0.2s"
       >
         <div class="item">
-          <img class="team__img" src="../static/img/team/member.png" alt>
-          <div class="team__meta">
-            <p>Mark</p>
-            <span>CEO</span>
-            <ul class="clearfix">
-              <li>
-                <a href="#">
-                  <i class="fa fa-facebook"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
+          <a href="https://vk.com/khlebest_dmitry">
+            <img class="team__img" src="../static/img/team/84l4wbio5mU.jpg" alt>
+            <div class="team__meta">
+              <p>Khlebest Dmitry</p>
+              <span>Backend daveloper</span>
+            </div>
+          </a>
         </div>
 
         <div class="item">
-          <img class="team__img" src="../static/img/team/member.png" alt>
-          <div class="team__meta">
-            <p>Jonathan</p>
-            <span>Founder</span>
-            <ul class="clearfix">
-              <li>
-                <a href="#">
-                  <i class="fa fa-facebook"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
+          <a href="https://vk.com/id270520577">
+            <img class="team__img" src="../static/img/team/BpNrk2FYPJU.jpg" alt>
+            <div class="team__meta">
+              <p>Zhirov Vladislav</p>
+              <span>Front developer</span>
+            </div>
+          </a>
         </div>
       </div>
       <!-- end slider -->
@@ -545,7 +501,7 @@
             <h2 class="section__title">Get in Touch</h2>
             <p
               class="section__text"
-            >There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which.</p>
+            >Through this form you can leave a message to the administration, ask questions and quickly get feedback by e-mail.</p>
           </div>
           <!-- end section title -->
           <div
@@ -560,18 +516,22 @@
                 <li>
                   <span class="lnr lnr-map"></span>
                   The BuyCoin Company, LLC
-                  <br>32 Barnard St. #145 Savannah, GA 80634
+                  <br>Street Petrus Brovki, 6, audience 415, the first building.
                 </li>
                 <li>
                   <span class="lnr lnr-calendar-full"></span>Mon - Fri 08:00 - 19:00
                 </li>
                 <li>
                   <span class="lnr lnr-inbox"></span>
-                  <a href="mailto:support@buycoin.com">support@buycoin.com</a>
+                  <a href="mailto:vladzhirov1997new@gmail.com">vladzhirov1997new@gmail.com</a>
+                  <br>
+                  <a href="khlebestdima@gmail.com">khlebestdima@gmail.com</a>
                 </li>
                 <li>
                   <span class="lnr lnr-phone-handset"></span>
-                  <a href="tel:+18002345678">+1 (800) 234-5678</a>
+                  <a href="tel:+375447125551">+375 (44) 712-55-51</a>
+                  <br>
+                  <a href="tel:+375292534774">+375 (29) 253-47-74</a>
                 </li>
               </ul>
             </div>
@@ -585,11 +545,32 @@
             data-delay="0.5s"
           >
             <!-- form -->
-            <form action="#" class="form form--contacts">
-              <input type="text" class="form__input" placeholder="Name">
-              <input type="text" class="form__input" placeholder="Email">
-              <textarea class="form__textarea" placeholder="Message"></textarea>
-              <button class="form__btn" type="button">Send</button>
+            <form id="contact" name="contact" action="sendMessage" class="form form--contacts">
+              <input
+                v-model="formName"
+                type="name"
+                id="name"
+                name="name"
+                class="form__input"
+                placeholder="Name"
+              >
+              <input
+                v-model="formEmail"
+                type="email"
+                id="email"
+                name="email"
+                class="form__input"
+                placeholder="Email"
+              >
+              <textarea
+                v-model="formText"
+                id="msg"
+                name="msg"
+                class="form__textarea"
+                placeholder="Message"
+              ></textarea>
+              <button class="form__btn" type="button" @click="sendMessage">Send</button>
+              <p v-if="send" style="color: green; margin-top: 10px;">Message sent</p>
             </form>
             <!-- end form -->
           </div>
@@ -609,62 +590,17 @@
           <div class="col-xs-12">
             <!-- partners slider -->
             <div class="owl-carousel partners__slider">
-              <!-- slider item -->
-              <div class="item">
-                <a href="#">
-                  <img src="../static/img/partners/partner.png" alt>
+              <div
+                v-for="partner of this.$store.state.homePage.partners"
+                :key="partner"
+                class="item"
+              >
+                <!-- slider item -->
+                <a :href="partner">
+                  <img style="width: 80px; height: 80px;" :src="partner" alt>
                 </a>
+                <!-- end slider item -->
               </div>
-              <!-- end slider item -->
-              <!-- slider item -->
-              <div class="item">
-                <a href="#">
-                  <img src="../static/img/partners/partner.png" alt>
-                </a>
-              </div>
-              <!-- end slider item -->
-              <!-- slider item -->
-              <div class="item">
-                <a href="#">
-                  <img src="../static/img/partners/partner.png" alt>
-                </a>
-              </div>
-              <!-- end slider item -->
-              <!-- slider item -->
-              <div class="item">
-                <a href="#">
-                  <img src="../static/img/partners/partner.png" alt>
-                </a>
-              </div>
-              <!-- end slider item -->
-              <!-- slider item -->
-              <div class="item">
-                <a href="#">
-                  <img src="../static/img/partners/partner.png" alt>
-                </a>
-              </div>
-              <!-- end slider item -->
-              <!-- slider item -->
-              <div class="item">
-                <a href="#">
-                  <img src="../static/img/partners/partner.png" alt>
-                </a>
-              </div>
-              <!-- end slider item -->
-              <!-- slider item -->
-              <div class="item">
-                <a href="#">
-                  <img src="../static/img/partners/partner.png" alt>
-                </a>
-              </div>
-              <!-- end slider item -->
-              <!-- slider item -->
-              <div class="item">
-                <a href="#">
-                  <img src="../static/img/partners/partner.png" alt>
-                </a>
-              </div>
-              <!-- end slider item -->
             </div>
             <!-- end partners slider -->
           </div>
@@ -672,41 +608,6 @@
       </div>
     </div>
     <!-- end partners -->
-    <!-- sign in -->
-    <div id="signin" class="mfp-hide modal">
-      <button class="modal__close" type="button">
-        <span class="lnr lnr-cross"></span>
-      </button>
-
-      <h6 class="modal__title">Sign In</h6>
-
-      <form class="form form--modal" action="#">
-        <input type="text" class="form__input" placeholder="Username">
-        <input type="password" class="form__input" placeholder="Password">
-        <button class="form__btn" type="button">Sign In</button>
-      </form>
-
-      <a href="#signup" class="modal__link modal-btn">Registration</a>
-    </div>
-    <!-- end sign in -->
-    <!-- registration -->
-    <div id="signup" class="mfp-hide modal">
-      <button class="modal__close" type="button">
-        <span class="lnr lnr-cross"></span>
-      </button>
-
-      <h6 class="modal__title">Registration</h6>
-
-      <form class="form form--modal" action="#">
-        <input type="text" class="form__input" placeholder="Username">
-        <input type="text" class="form__input" placeholder="Email">
-        <input type="password" class="form__input" placeholder="Password">
-        <button class="form__btn" type="button">Registration</button>
-      </form>
-
-      <a href="#signin" class="modal__link modal-btn">Sign In</a>
-    </div>
-    <!-- end registration -->
     <!-- preloader -->
     <!-- <div class="preloader">
 			<div class="preloader__logo">
@@ -722,58 +623,53 @@
 </template>
 
 <script>
-
-// request = {
-// 	method: 'homeUploadInfo',
-// 	data: {}
-// };
-
-// response = {
-// 	method: 'homeUploadInfo',
-// 	data: {
-// 		ok: {
-// 			coins: [
-// 				{
-// 					id,
-// 					name,
-// 					price,
-// 					changePerHour,
-// 					changePerDay,
-// 					changePerWeek,
-// 					marketCap
-// 				}
-// 			],
-// 			info: {
-// 				countOnline,
-// 				totalQuantity,
-// 				totalPrice
-// 			}
-// 		}
-// 	}
-// };
-
-const data = {
-  coins: [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
-  info: {
-    // countOnline: 0,
-    // totalPrice: 0,
-    // totalQuantity: 0
-  }
-};
-
 export default {
-  data: () => data,
+  data() {
+    return {
+      formName: "",
+      formEmail: "",
+      formText: "",
+      send: false
+    };
+  },
   created() {
-    this.$store.state.sendRequest({
-      method: "homeUploadInfo",
-      data: {},
-      callback: response => {
-        if (response.ok) {
-          data.coins = response.ok.coins;
-          data.info = response.ok.info;
+    this.$store.state.startAnimate();
+
+    const init = () =>
+      this.$store.state.sendRequest({
+        method: "homeUploadInfo",
+        data: {},
+        callback: response => {
+          if (response.ok) {
+            this.$store.state.homePage.coins = response.ok.coins;
+            this.$store.state.homePage.info = response.ok.info;
+          }
         }
-      }
-    });
+      });
+
+    init();
+
+    this.$store.state.homePage.intervalUpdate = setInterval(
+      init,
+      this.$store.state.homePage.timeIntervalUpdate
+    );
+  },
+  destroyed() {
+    clearInterval(this.$store.state.homePage.intervalUpdate);
+  },
+  methods: {
+    sendMessage() {
+      $.ajax({
+        type: "POST",
+        url: "../static/sendmessage.php",
+        data: $("#contact").serialize(),
+        success: function(data) {
+          if (data == "true") {
+            this.send = true;
+          }
+        }
+      });
+    }
   }
 };
 </script>

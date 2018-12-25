@@ -14,7 +14,7 @@
             >
               <div class="home__content" align="center">
                 <h1 class="home__title">Not Found Component</h1>
-                <h1 class="home__title">Error</h1>
+                <h1 class="home__title">Error 404!</h1>
               </div>
             </div>
             <!-- end home content -->
@@ -27,4 +27,9 @@
 </template>
 
 <script>
+export default {
+  created() {
+    this.$store.state.startAnimate();
+  }
+};
 </script>

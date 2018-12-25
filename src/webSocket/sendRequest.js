@@ -4,7 +4,6 @@
 
 import createRuid from './createRuid';
 import storageQueries from './storageQueries';
-// console.log('storageQueries', storageQueries);
 
 
 const createSendRequest = () => {
@@ -35,39 +34,8 @@ const createSendRequest = () => {
 		}, 0);
 	};
 
-	// const callbackAuthorization = (response) => {
-		// response.errorMessage 
-		// 	&& console.log("Error: ", response.errorMessage);
-		// if(response.user) {
-		// 	// serviceUser.user = response.user;
-		// 	serviceUser.user.id = response.user.id;
-		// 	serviceUser.user.login = response.user.login;
-		// 	serviceUser.user.avatarPath = response.user.avatarPath;
-		// 	serviceUser.user.interlocutor = null;
-		// 	$location.path(`/${serviceUser.user.id}/personal_page`);
-		// 	if(!$rootScope.$$phase) $rootScope.$apply();
-		// } else {
-		// 	$location.path('/login');
-		// 	if(!$rootScope.$$phase) $rootScope.$apply();
-		// }
-	// };
-
 	const wsOpen = () => {
-		console.log("Open ws");
-		// let token = localStorage.getItem('coin_token');
-
-		// if (!token) {
-		// 	$router.replace('/');
-		// 	return;
-		// }
-
-		// sendRequest({
-		// 	method: "authorization",
-		// 	data: {
-		// 		token
-		// 	},
-		// 	callback: callbackAuthorization
-		// });
+		console.log("Open webSocket");
 	};
 
 	const wsMessage = (res) => {
@@ -98,7 +66,7 @@ const createSendRequest = () => {
 		}, 1000);
 	};
 
-	function wsError(/*err*/) {
+	const wsError = (/*err*/) => {
 		console.log('Socket encountered error. Closing socket');
 		ws.readyState !== 3 && ws.close();
 	}
