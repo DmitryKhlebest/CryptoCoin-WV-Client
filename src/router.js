@@ -2,7 +2,6 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import store from './store';
 
-// import HomePage from '@/components/HomePage';
 import HomePage from '@/views/HomePage.vue';
 import SingIn from '@/views/SingIn';
 import SingUp from '@/views/SingUp';
@@ -11,7 +10,6 @@ import PersonalPage from '@/views/PersonalPage';
 import MarketPage from '@/views/MarketPage';
 import HistoryPage from '@/views/HistoryPage';
 import NotFoundComponent from '@/views/NotFoundComponent';
-// import User from "./user";
 
 Vue.use(Router);
 

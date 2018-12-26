@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const startAnimate = function () {
 	setTimeout(function () {
 		"use strict"; // start of use strict

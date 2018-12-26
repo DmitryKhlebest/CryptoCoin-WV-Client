@@ -659,6 +659,20 @@ export default {
       init,
       this.$store.state.homePage.timeIntervalUpdate
     );
+
+    $(window).scroll(function() {
+      if ($(this).scrollTop() > 100) {
+        if ($("#upbutton").is(":hidden")) {
+          $("#upbutton")
+            .css({ opacity: 1 })
+            .fadeIn("slow");
+        }
+      } else {
+        $("#upbutton")
+          .stop(true, false)
+          .fadeOut("fast");
+      }
+    });
   },
   destroyed() {
     clearInterval(this.$store.state.homePage.intervalUpdate);
@@ -678,20 +692,6 @@ export default {
     }
   }
 };
-
-$(window).scroll(function() {
-  if ($(this).scrollTop() > 100) {
-    if ($("#upbutton").is(":hidden")) {
-      $("#upbutton")
-        .css({ opacity: 1 })
-        .fadeIn("slow");
-    }
-  } else {
-    $("#upbutton")
-      .stop(true, false)
-      .fadeOut("fast");
-  }
-});
 </script>
 
 <style>
