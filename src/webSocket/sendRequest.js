@@ -10,9 +10,9 @@ const createSendRequest = () => {
 	let ws;
 
 	const connect = () => {
-		ws = new WebSocket('ws://localhost:12345');
+		// ws = new WebSocket('ws://localhost:12345');
 		// ws = new WebSocket('ws://192.168.43.211:12345');
-		// ws = new WebSocket('ws://3.120.116.49:12345');
+		ws = new WebSocket('ws://3.120.116.49:12345');
 
 		ws.onopen = wsOpen;
 		ws.onmessage = wsMessage;
