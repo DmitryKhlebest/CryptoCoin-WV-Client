@@ -61,10 +61,7 @@
                     class="home__btn home__btn--color"
                     @click="simulateClickupdateAvatar"
                   >Update avatar</button>
-                  <p
-                    v-if="errorUpdate"
-                    style="color: red; margin-top: 10px;"
-                  >{{errorUpdate}}</p>
+                  <p v-if="errorUpdate" style="color: red; margin-top: 10px;">{{errorUpdate}}</p>
                 </div>
 
                 <div style="margin-top: 40px;">
@@ -105,10 +102,7 @@
                     class="home__btn home__btn--color"
                     @click="saleCoin"
                   >Sale coin</button>
-                  <p
-                    v-if="errorSale"
-                    style="color: red; margin-top: 10px;"
-                  >{{errorSale}}</p>
+                  <p v-if="errorSale" style="color: red; margin-top: 10px;">{{errorSale}}</p>
                 </div>
               </div>
 
@@ -309,7 +303,7 @@ export default {
 
       reader.readAsDataURL(image);
     },
-    buyCoins(evnt) {
+    buyCoins() {
       const personalPageCoins = this.$store.state.personalPage.coins;
       let coins = [];
       let inputs = [];
@@ -389,6 +383,9 @@ export default {
                 coin.quantity = saleCoin.quantity;
                 break;
               }
+
+            this.salePrice = "";
+            this.saleQuantity = "";
           } else {
             this.errorSale = response.error.message;
             setTimeout(() => (this.errorSale = null), 3000);
