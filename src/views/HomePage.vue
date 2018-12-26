@@ -96,7 +96,8 @@
               <span class="box4__number">01</span>
               <h3 class="box4__title">Registration</h3>
               <p class="box4__text">
-                Registration is the process of telling the site your data to access the full <b>functionality of the site</b>, that can not be viewed or downloaded by unauthorized users.
+                Registration is the process of telling the site your data to access the full
+                <b>functionality of the site</b>, that can not be viewed or downloaded by unauthorized users.
               </p>
             </div>
             <!-- end box (style 4) -->
@@ -108,7 +109,9 @@
               <span class="box4__number">02</span>
               <h3 class="box4__title">Authorization</h3>
               <p class="box4__text">
-                After the registration phase is completed, you can log in using your username. Enter the <b>username</b> you provided during registration and the access <b>password</b> for your account.
+                After the registration phase is completed, you can log in using your username. Enter the
+                <b>username</b> you provided during registration and the access
+                <b>password</b> for your account.
               </p>
             </div>
             <!-- end box (style 4) -->
@@ -120,7 +123,9 @@
               <span class="box4__number">03</span>
               <h3 class="box4__title">Buy and Sell Coin</h3>
               <p class="box4__text">
-                After authorization on the site you will be presented with its <b>full functionality</b>. You will be able to <b>buy and sell cryptocurrency</b> from the system as well as from other users.
+                After authorization on the site you will be presented with its
+                <b>full functionality</b>. You will be able to
+                <b>buy and sell cryptocurrency</b> from the system as well as from other users.
               </p>
             </div>
             <!-- end box (style 4) -->
@@ -243,7 +248,7 @@
     <!-- end features -->
     <!-- roadmap -->
     <section id="roadmap" class="section section--grey">
-      <div class="container-fluid">
+      <div class="container">
         <div class="row">
           <!-- section title -->
           <div
@@ -619,6 +624,7 @@
 			</div>
     </div>-->
     <!-- end preloader -->
+    <a data-scroll href="#home" id="upbutton"></a>
   </div>
 </template>
 
@@ -672,4 +678,32 @@ export default {
     }
   }
 };
+
+$(window).scroll(function() {
+  if ($(this).scrollTop() > 100) {
+    if ($("#upbutton").is(":hidden")) {
+      $("#upbutton")
+        .css({ opacity: 1 })
+        .fadeIn("slow");
+    }
+  } else {
+    $("#upbutton")
+      .stop(true, false)
+      .fadeOut("fast");
+  }
+});
 </script>
+
+<style>
+#upbutton {
+  background: url("../static/img/up.png") no-repeat top left;
+  height: 35px;
+  width: 60px;
+  bottom: 30px;
+  right: 30px;
+  cursor: pointer;
+  display: none;
+  position: fixed;
+  z-index: 999;
+}
+</style>

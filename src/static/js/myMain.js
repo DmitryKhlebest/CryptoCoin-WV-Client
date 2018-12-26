@@ -22,14 +22,16 @@ const startAnimate = function () {
 		/*==============================
 		Mobile navigation
 		==============================*/
-		$('.header__btn').on('click', function () {
-			$(this).toggleClass('header__btn--active');
-			$('.header__nav').toggleClass('header__nav--active');
+		// $('.header__btn').on('click', function () {
+		// 	console.log("Hello1");
+		// 	$(this).toggleClass('header__btn--active');
+		// 	$('.header__nav').toggleClass('header__nav--active');
 
-			if ($(window).scrollTop() == 0) {
-				$('.header').toggleClass('header--active');
-			}
-		});
+		// 	if ($(window).scrollTop() == 0) {
+		// 		$('.header').toggleClass('header--active');
+		// 	}
+		// 	console.log("Hello2");
+		// });
 
 		/*==============================
 		Header

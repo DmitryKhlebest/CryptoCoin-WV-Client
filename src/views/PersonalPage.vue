@@ -34,105 +34,119 @@
               >-->
               <!-- ------------------- Тут таблица (vue good table) ------------------- -->
               <!-- </div> -->
-              <div id="left_div_pp" style="float:left; width: 240px;">
-                <!-- <div style="float: left"> -->
-                <span
-                  class="home__text"
-                  style="margin-bottom: 10px"
-                >Login: {{this.$store.state.User && this.$store.state.User.login}}</span>
-                
-                <img
-                  class="img-avatar"
-                  :src="this.$store.state.User && this.$store.state.User.avatar && this.$store.state.User.avatar.image"
-                  :title="this.$store.state.User && this.$store.state.User.avatar && this.$store.state.User.avatar.name"
-                  alt="Without avatar"
-                >
-
-                <div>
-                  <input
-                    type="file"
-                    accept="image/*"
-                    style="display: none"
-                    ref="updateAvatar"
-                    @change="updateAvatar"
+              <div
+                class="col-xs-12 col-md-3 animate"
+                data-animate="fadeIn"
+                data-duration="1.0s"
+                data-delay="0.5s"
+              >
+                <div id="left_div_pp" style="float:left; width: 240px;">
+                  <!-- <div style="float: left"> -->
+                  <span
+                    class="home__text"
+                    style="margin-bottom: 10px"
+                  >Login: {{this.$store.state.User && this.$store.state.User.login}}</span>
+                  
+                  <img
+                    class="img-avatar"
+                    :src="this.$store.state.User && this.$store.state.User.avatar && this.$store.state.User.avatar.image"
+                    :title="this.$store.state.User && this.$store.state.User.avatar && this.$store.state.User.avatar.name"
+                    alt="Without avatar"
                   >
-                  <button
-                    style="margin-top:10px; width: 200px; height: 50px"
-                    class="home__btn home__btn--color"
-                    @click="simulateClickupdateAvatar"
-                  >Update avatar</button>
-                  <p v-if="errorUpdate" style="color: red; margin-top: 10px;">{{errorUpdate}}</p>
-                </div>
 
-                <div style="margin-top: 40px;">
-                  <p class="home__text" style="margin-bottom: 10px">Buy/Sale coins</p>
-                  <button
-                    style="width: 200px"
-                    class="home__btn home__btn--color"
-                    @click="buyCoins"
-                  >Buy coins</button>
-                  <p v-if="errorBuy" style="color: red; margin-top: 10px;">{{errorBuy}}</p>
-                </div>
-
-                <div style="margin-top: 40px;">
-                  <p class="home__text" style="margin-bottom: 0px">Sale coin</p>
-                  <div class="styled-select green semi-square" style="margin: 20px;">
-                    <select v-model="saleCoinId">
-                      <option v-for="option in options" :key="option">{{ option }}</option>
-                    </select>
+                  <div>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      style="display: none"
+                      ref="updateAvatar"
+                      @change="updateAvatar"
+                    >
+                    <button
+                      style="margin-top:10px; width: 200px; height: 50px"
+                      class="home__btn home__btn--color"
+                      @click="simulateClickupdateAvatar"
+                    >Update avatar</button>
+                    <p v-if="errorUpdate" style="color: red; margin-top: 10px;">{{errorUpdate}}</p>
                   </div>
-                  <input
-                    v-model="salePrice"
-                    type="number"
-                    step="0.01"
-                    class="form__input"
-                    placeholder="Sale price"
-                    style="width: 200px; height: 30px; margin: 10px 20px;"
-                  >
-                  <input
-                    v-model="saleQuantity"
-                    type="number"
-                    step="0.01"
-                    class="form__input"
-                    placeholder="Sale quantity"
-                    style="width: 200px; height: 30px; margin: 10px 20px;"
-                  >
-                  <button
-                    style="width: 200px"
-                    class="home__btn home__btn--color"
-                    @click="saleCoin"
-                  >Sale coin</button>
-                  <p v-if="errorSale" style="color: red; margin-top: 10px;">{{errorSale}}</p>
+
+                  <div style="margin-top: 40px;">
+                    <p class="home__text" style="margin-bottom: 10px">Buy/Sale coins</p>
+                    <button
+                      style="width: 200px"
+                      class="home__btn home__btn--color"
+                      @click="buyCoins"
+                    >Buy coins</button>
+                    <p v-if="errorBuy" style="color: red; margin-top: 10px;">{{errorBuy}}</p>
+                  </div>
+
+                  <div style="margin-top: 40px;">
+                    <p class="home__text" style="margin-bottom: 0px">Sale coin</p>
+                    <div class="styled-select green semi-square" style="margin: 20px;">
+                      <select v-model="saleCoinId">
+                        <option v-for="option in options" :key="option">{{ option }}</option>
+                      </select>
+                    </div>
+                    <input
+                      v-model="salePrice"
+                      type="number"
+                      step="0.01"
+                      class="form__input"
+                      placeholder="Sale price"
+                      style="width: 200px; height: 30px; margin: 10px 20px;"
+                    >
+                    <input
+                      v-model="saleQuantity"
+                      type="number"
+                      step="0.01"
+                      class="form__input"
+                      placeholder="Sale quantity"
+                      style="width: 200px; height: 30px; margin: 10px 20px;"
+                    >
+                    <button
+                      style="width: 200px"
+                      class="home__btn home__btn--color"
+                      @click="saleCoin"
+                    >Sale coin</button>
+                    <p v-if="errorSale" style="color: red; margin-top: 10px;">{{errorSale}}</p>
+                  </div>
                 </div>
               </div>
 
-              <div id="right_div_pp" style="margin-left:240px; margin-top: 20px">
-                <span
-                  class="home__text"
-                  style="margin-bottom: 10px"
-                >Balance: {{this.$store.state.User && this.$store.state.User.balance}}</span>
-                <div>
-                  <vue-good-table
-                    :line-numbers="true"
-                    :columns="table.columns"
-                    :rows="table.rows"
-                    theme="black-rhino"
-                    :pagination-options="{
+              <div
+                class="col-xs-12 col-md-9 animate"
+                data-animate="fadeIn"
+                data-duration="1.0s"
+                data-delay="0.5s"
+              >
+                <div id="right_div_pp">
+                  <span
+                    class="home__text"
+                    style="margin-bottom: 10px"
+                  >Balance: {{this.$store.state.User && this.$store.state.User.balance}}</span>
+                  <div>
+                    <vue-good-table
+                      :line-numbers="true"
+                      :columns="table.columns"
+                      :rows="table.rows"
+                      theme="black-rhino"
+                      :pagination-options="{
 											mode: 'pages',
 											perPage: 10,
 											enabled: true,
 											perPageDropdown: [],
 										}"
-                    styleClass="vgt-table bordered"
-                    :sort-options="{
+                      styleClass="vgt-table bordered"
+                      :sort-options="{
 											enabled: true,
 											initialSortBy: [{field: this.funPrice, type: 'desc'}],
 										}"
-                    :search-options="{
+                      :search-options="{
 											enabled: true,
 											skipDiacritics: true,
 										}"
-                  ></vue-good-table>
+                    ></vue-good-table>
+                  </div>
                 </div>
               </div>
               <!-- end about -->

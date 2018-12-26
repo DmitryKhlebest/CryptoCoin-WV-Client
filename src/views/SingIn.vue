@@ -25,17 +25,17 @@
                         class="form__input"
                         placeholder="Password"
                       >
-                      <router-link class="form__btn" to="/signup">Sign Up</router-link>
-                      <button class="form__btn" type="submit">Sign In</button>
+                      <div style="float: left;">
+                        <router-link class="form__btn" style="left: 50%" to="/signup">Sign Up</router-link>
+                      </div>
+                      <div style="float: right;">
+                        <button class="form__btn" style="left: 50%" type="submit">Sign In</button>
+                      </div>
                     </form>
 
                     <br>
                     <br>
-                    <p
-                      v-if="error"
-                      class="home__text"
-                      style="color: red;"
-                    >{{error}}</p>
+                    <p v-if="error" class="home__text" style="color: red;">{{error}}</p>
                   </div>
                 </div>
               </div>

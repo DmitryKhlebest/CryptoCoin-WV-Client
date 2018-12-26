@@ -14,50 +14,64 @@
             >
               <div class="home__content" align="center">
                 <h1 class="home__title">History</h1>
-                <p class="home__text" style="margin-bottom: 10px">Purchases table</p>
-                <vue-good-table
-                  :line-numbers="true"
-                  :columns="purchasesTable.columns"
-                  :rows="purchasesTable.rows"
-                  theme="black-rhino"
-                  :pagination-options="{
+                <div
+                  class="col-xs-12 col-md-6 animate"
+                  data-animate="fadeIn"
+                  data-duration="1.0s"
+                  data-delay="0.5s"
+                >
+                  <p class="home__text" style="margin-bottom: 10px">Purchases table</p>
+                  <vue-good-table
+                    :line-numbers="true"
+                    :columns="purchasesTable.columns"
+                    :rows="purchasesTable.rows"
+                    theme="black-rhino"
+                    :pagination-options="{
 											mode: 'pages',
-											perPage: 3,
+											perPage: 5,
 											enabled: true,
-											perPageDropdown: [3],
+											perPageDropdown: [5],
 										}"
-                  styleClass="vgt-table bordered"
-                  :sort-options="{
+                    styleClass="vgt-table bordered"
+                    :sort-options="{
 											enabled: true,
 											initialSortBy: [{field: this.funDate, type: 'desc'}],
 										}"
-                  :search-options="{
+                    :search-options="{
 											enabled: true,
 											skipDiacritics: true,
 										}"
-                ></vue-good-table>
-                <p class="home__text" style="margin-bottom: 10px; margin-top: 20px">Sales table</p>
-                <vue-good-table
-                  :line-numbers="true"
-                  :columns="salesTable.columns"
-                  :rows="salesTable.rows"
-                  theme="black-rhino"
-                  :pagination-options="{
+                  ></vue-good-table>
+                </div>
+                <div
+                  class="col-xs-12 col-md-6 animate"
+                  data-animate="fadeIn"
+                  data-duration="1.0s"
+                  data-delay="0.5s"
+                >
+                  <p class="home__text" style="margin-bottom: 10px;">Sales table</p>
+                  <vue-good-table
+                    :line-numbers="true"
+                    :columns="salesTable.columns"
+                    :rows="salesTable.rows"
+                    theme="black-rhino"
+                    :pagination-options="{
 											mode: 'pages',
-											perPage: 3,
+											perPage: 5,
 											enabled: true,
-											perPageDropdown: [3],
+											perPageDropdown: [5],
 										}"
-                  styleClass="vgt-table bordered"
-                  :sort-options="{
+                    styleClass="vgt-table bordered"
+                    :sort-options="{
 											enabled: true,
 											initialSortBy: [{field: this.funDate, type: 'desc'}],
 										}"
-                  :search-options="{
+                    :search-options="{
 											enabled: true,
 											skipDiacritics: true,
 										}"
-                ></vue-good-table>
+                  ></vue-good-table>
+                </div>
               </div>
             </div>
             <!-- end home content -->

@@ -7,7 +7,7 @@
           <div class="row">
             <div class="col-xs-12">
               <!-- btn -->
-              <button class="header__btn" type="button">
+              <button class="header__btn" type="button" @click="openMenu">
                 <span class="lnr lnr-menu"></span>
                 <span class="lnr lnr-cross"></span>
               </button>
@@ -156,6 +156,19 @@ export default {
           }
         }
       });
+  },
+  methods: {
+    openMenu() {
+      /*==============================
+      Mobile navigation
+      ==============================*/
+      $(this).toggleClass("header__btn--active");
+      $(".header__nav").toggleClass("header__nav--active");
+
+      if ($(window).scrollTop() == 0) {
+        $(".header").toggleClass("header--active");
+      }
+    }
   }
 };
 </script>
